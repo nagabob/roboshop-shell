@@ -16,5 +16,5 @@ do
     fi
     echo "creating $i instance"
     IP_ADDRESS=$(aws ec2 run-instances --image-id $IMAGE_ID  --instance-type $INSTANCE_TYPE --security-group-ids $SECURITY_GROUP_ID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" | jq -r '.Instance[0].PrivateIpAddress')
-    echo "created $i instance: $IP_ADDRESS
+    echo "created $i instance: $IP_ADDRESS"
 done
